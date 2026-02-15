@@ -6,6 +6,6 @@
 3. Implementation using two Languages ('C++' and 'Python').
 4. Extra reading material resources. (if needed).
 
-### Core Resource:
+### Core Resources:
 
 ***Strives A2Z DSA Course:*** [https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z](https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z)
