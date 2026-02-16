@@ -91,6 +91,26 @@ void pattern4(int numberOfElement){
     }
 }
 
+void pattern5(int numberOfElement){
+    for(int row=0; row<numberOfElement; row++){
+        // Space
+        for (int space=0; space<row; space++){
+            cout << " ";
+        }
+
+        // Star
+        for (int star=0; star<2*(numberOfElement-row) - 1; star++){
+            cout << "*";
+        }
+
+        // Space
+        for (int space=0; space<row; space++){
+            cout << " ";
+        }
+        cout << "\n";
+    }
+}
+
 
 int main(){
     // ---------- Pattern - 1: ----------
@@ -143,6 +163,14 @@ int main(){
 
     cout << "Printing Pattern-4:" << endl;
     pattern4(numberOfElements);
+
+    // ---------- Pattern - 5: ----------
+    cout << "Enter the Number of Element for Pattern-5:";
+    cin >> numberOfElements;
+
+    cout << "Printing Pattern-5:" << endl;
+    pattern5(numberOfElements);
+    
 
     return 0;
 }

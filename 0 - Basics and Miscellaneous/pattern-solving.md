@@ -181,3 +181,42 @@ for (row=0; row<n; row++)
 
    print (\n)
 ```
+
+----------------------
+### Pattern-5:
+
+```
+***********
+ *********
+  *******
+   *****
+    ***
+     *
+6 Rows and 11 Columns.
+=> Number of Row = n = 6
+=> Number of Column = nc = 2*n-1 = 11
+
+1st Row = 0 Spaces | 11 Star | 0 Spaces
+2nd Row = 1 Spaces | 9 Stars | 1 Spaces
+3rd Row = 2 Spaces | 7 Stars | 2 Spaces
+4th Row = 3 Spaces | 5 Stars | 3 Spaces
+5th Row = 4 Spaces | 3 Stars | 4 Spaces
+6th Row = 5 Spaces | 1 Stars | 5 Spaces
+
+=> (row-1) space | 2*(n-row)+1 Stars
+```
+**Pseudo Code:**
+```
+n=6;
+for (row=0; row<n; row++)
+   // Space
+   for (space=0; space<row; space++) print (" ")
+
+   // Star
+   for (star=0; star<2*(n-row)-1; star++) print(*)
+
+   // Space
+   for (space=0; space<row; space++) print (" ")
+
+   print (\n)
+```
