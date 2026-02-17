@@ -111,6 +111,46 @@ void pattern5(int numberOfElement){
     }
 }
 
+void pattern6(int numberOfElement){
+    int upsideElement = numberOfElement/2;
+    int downsideElement = numberOfElement - upsideElement;
+    
+    pattern4(numberOfElement);
+    pattern5(numberOfElement);
+}
+
+void pattern7(int numberOfElement){
+    int midRow = (numberOfElement+1)/2;
+    
+    for (int row=0; row<numberOfElement; row++){
+        if(row<midRow){
+            for (int star=0; star<=row; star++){
+                cout << "* ";
+            }
+            cout << endl;
+        }
+        else {
+            for (int star=0; star<((midRow*2) - row - 1); star++){
+                cout << "* ";
+            }
+            cout << endl;
+        }
+    }
+}
+
+void pattern8(int numberOfElement){
+    int start = 1;
+    for(int row=0; row<numberOfElement; row++){
+        if (row%2 == 0) start = 1;
+        else start = 0;
+
+        for(int col=0; col<=row; col++){
+            cout << start;
+            start = 1 - start;
+        }
+        cout << "\n";
+    }
+}
 
 int main(){
     // ---------- Pattern - 1: ----------
@@ -170,6 +210,28 @@ int main(){
 
     cout << "Printing Pattern-5:" << endl;
     pattern5(numberOfElements);
+    
+    // ---------- Pattern - 6: ----------
+    cout << "Enter the Number of Element for Pattern-6:";
+    cin >> numberOfElements;
+
+    cout << "Printing Pattern-6:" << endl;
+    pattern6(numberOfElements);
+    
+    // ---------- Pattern - 7: ----------
+    cout << "Enter the Number of Element for Pattern-7:";
+    cin >> numberOfElements;
+
+    cout << "Printing Pattern-7:" << endl;
+    pattern7(numberOfElements);
+    
+    // ---------- Pattern - 8: ----------
+    cout << "Enter the Number of Element for Pattern-8:";
+    cin >> numberOfElements;
+
+    cout << "Printing Pattern-8:" << endl;
+    pattern8(numberOfElements);
+    
     
 
     return 0;

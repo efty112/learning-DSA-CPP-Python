@@ -220,3 +220,97 @@ for (row=0; row<n; row++)
 
    print (\n)
 ```
+-----------
+### Pattern-6:
+```
+     *  
+    ***
+   *****
+  *******
+ *********
+***********
+***********
+ *********
+  *******
+   *****
+    ***
+     *
+```
+
+**Pseudo Code:**
+```
+First Print => Pattern 4
+Then Print => Pattern 5
+```
+
+---------
+### Pattern-7:
+```
+* 
+* * 
+* * * 
+* * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+
+Number of Rows => n=9;
+Middle = (n+1) / 2;
+
+1st Row = 1 Star
+2nd Row = 2 Stars
+3rd Row = 3 Stars
+4th Row = 4 Stars
+5th Row = 5 Stars
+[1st Row to 5th Row (Mid Row) --> Row Number = Star Number]
+
+6th Row = 4 Stars
+7th Row = 3 Stars
+8th Row = 2 Stars
+9th Row = 1 Stars
+
+[6th Row to 9th Row --> (MidRow*2) - row = Star Number]
+```
+
+**Pseudo Code:**
+```
+n;
+midRow = (n+1)/2;
+
+for (row=0; row<n row++)
+   if (row < midRow)
+      for (s=0; s<=row; s++)
+          print(*)
+      print (\n)
+   else
+      for (s=0; s<((midRow*2) - row - 1); s++)
+          print(*)
+      print(\n)
+```
+
+---------
+### Pattern-8:
+```
+1 
+0 1 
+1 0 1 
+0 1 0 1
+1 0 1 0 1
+
+Follow "Pattern 2"
+```
+
+**Pseudo Code:**
+```
+start = 1;
+for (row=0; row<5; row++)
+   if(row%2 == 0) start = 1;
+   else start = 0;
+
+   for (col=0; col<=row; col++)
+      print(start)
+      start = 1 - start;
+   print(/n)
+```
