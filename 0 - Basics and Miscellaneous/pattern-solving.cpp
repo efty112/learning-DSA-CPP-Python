@@ -257,15 +257,45 @@ void pattern13(int numberOfElement){
     }
 
 }
+
+void pattern14(int numberOfElement){
+    int spaces = 2*numberOfElement - 2;
+
+    for (int row=1; row<=(2*numberOfElement-1); row++){
+        int stars = row;
+        if(row > numberOfElement)  stars = 2*numberOfElement - row;
+
+        // Star
+        for (int star=1; star<=stars; star++){
+            cout << "*";
+        }
+        
+        // Space
+        for (int space=1; space<=spaces; space++){
+            cout << " ";
+        }
+     
+        // Star
+        for (int star=1; star<=stars; star++){
+            cout << "*";
+        }
+        
+        cout << endl;
+        if (row < numberOfElement) spaces -= 2;
+        else spaces += 2;
+    }
+}
+
+
 int main(){
     int numberOfElements;
 
-    // ---------- Pattern - 13: ----------
-    cout << "Enter the Number of Element for Pattern-13:";
+    // ---------- Pattern - 14: ----------
+    cout << "Enter the Number of Element for Pattern-14:";
     cin >> numberOfElements;
 
-    cout << "Printing Pattern-13:" << endl;
-    pattern13(numberOfElements);
+    cout << "Printing Pattern-14:" << endl;
+    pattern14(numberOfElements);
 
     return 0;
 }

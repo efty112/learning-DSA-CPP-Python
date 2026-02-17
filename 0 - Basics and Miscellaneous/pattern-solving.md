@@ -475,7 +475,7 @@ Half of the Rows  => n = 5;
 **Pseudo Code:**
 ```
 n;
-int spaces = 0;
+spaces = 0;
 
 for (row=0; row<n; row++)
 
@@ -491,7 +491,7 @@ for (row=0; row<n; row++)
    spaces += 2;
    print (\n)
 
-int spaces2 = 2*n - 2;
+spaces2 = 2*n - 2;
 
 for (row=1; row<=n; row++)
 
@@ -506,5 +506,42 @@ for (row=1; row<=n; row++)
    
    spaces2 -= 2;
    print (\n)
+```
 
+---------------
+### Pattern-14:
+
+```
+*        *
+**      **
+***    ***
+****  ****
+**********
+****  ****
+***    ***
+**      **
+*        *
+```
+
+**Pseudo Code:**
+```
+n;
+spaces = 2*n - 2;
+
+for (row=1; row<=(2*n-1); row++)
+    int stars = row;
+    if(row > n)  stars = 2*n - row;
+
+   // Star
+   for (star=1; star<=stars; star++) print ("*")
+   
+   // Space
+   for (space=1; space<=spaces; space++) print(" ")
+
+   // Star
+   for (star=1; star<=stars; star++) print ("*")
+   
+   print (\n)
+   if (row < n) spaces -= 2;
+   else spaces += 2;
 ```
