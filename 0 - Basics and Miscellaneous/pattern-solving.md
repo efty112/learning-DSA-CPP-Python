@@ -314,3 +314,38 @@ for (row=0; row<5; row++)
       start = 1 - start;
    print(/n)
 ```
+---------
+### Pattern-9:
+```
+1             1
+1 2         2 1
+1 2 3     3 2 1
+1 2 3 4 4 3 2 1
+
+Number of Rows => n = 4
+Number of Columns => n*2 = 8
+
+Number Amount => 2*row
+Space Amount => col - 2*row
+
+1st Row = 1 Number | 6 Spaces | 1 Number
+2nd Row = 2 Numbers| 4 Spaces | 2 Numbers
+3rd Row = 3 Numbers| 2 Spaces | 3 Numbers
+4th Row = 4 Numbers| 0 Spaces | 4 Numbers
+      (1 to Row Number)      (Row Number to 1)
+```
+
+**Pseudo Code:**
+```
+n;
+for (row=1; row<=n; row++)
+   for (num=1; num<=row; num++)
+       print(num);
+
+   for (space=1; space<= (2*(n-row)); space++)
+       print(" ");
+
+   for (num=row; num > 0; num--)
+       print(num);
+   print(\n)
+``` 

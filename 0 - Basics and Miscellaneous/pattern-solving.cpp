@@ -152,6 +152,32 @@ void pattern8(int numberOfElement){
     }
 }
 
+void pattern9(int numberOfElement){
+    for(int row=1; row<=numberOfElement; row++){
+        for (int num=1; num<=row; num++){
+            cout << num;
+        }
+        for (int space=1; space <= 2*(numberOfElement-row); space++){
+            cout << " ";
+        }
+        for (int num=row; num > 0; num--){
+            cout << num;
+        }
+        cout << endl;
+    }
+}
+
+void pattern10(int numberOfElement){
+    int num = 1;
+    for(int row=0; row<numberOfElement; row++){
+        for(int col=0; col<=row; col++){
+            cout << num << " ";
+            num++;
+        }
+        cout << "\n";
+    }
+}
+
 int main(){
     // ---------- Pattern - 1: ----------
     int numberOfElements;
@@ -232,7 +258,19 @@ int main(){
     cout << "Printing Pattern-8:" << endl;
     pattern8(numberOfElements);
     
+    // ---------- Pattern - 9: ----------
+    cout << "Enter the Number of Element for Pattern-9:";
+    cin >> numberOfElements;
+
+    cout << "Printing Pattern-9:" << endl;
+    pattern9(numberOfElements);
     
+    // ---------- Pattern - 10: ----------
+    cout << "Enter the Number of Element for Pattern-10:";
+    cin >> numberOfElements;
+
+    cout << "Printing Pattern-10:" << endl;
+    pattern10(numberOfElements);
 
     return 0;
 }
