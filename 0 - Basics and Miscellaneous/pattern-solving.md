@@ -342,10 +342,169 @@ for (row=1; row<=n; row++)
    for (num=1; num<=row; num++)
        print(num);
 
-   for (space=1; space<= (2*(n-row)); space++)
+   for (space=1; space<= ((2*(n-row)); space++)
        print(" ");
 
    for (num=row; num > 0; num--)
        print(num);
    print(\n)
 ``` 
+
+--------------
+
+### Pattern-10:
+```
+1 
+2 3 
+4 5 6 
+7 8 9 10
+11 12 13 14 15
+
+=> Just like Pattern-2
+```
+
+**Pseudo Code:**
+```
+int num=1;
+for (row=0; row<5; row++)
+   for (col=0; col<=row; col++)
+      print(num)
+      num++;
+   print(/n)
+```
+
+---------
+### Pattern-11:
+```
+A 
+A B 
+A B C 
+A B C D
+A B C D E
+
+=> Just like Pattern-2
+```
+
+**Pseudo Code:**
+```
+for (row=0; row<5; row++)
+   for (col='A'; col<='A' + row; col++)
+      print(col)
+   print(/n)
+```
+
+#### Now Solve These: [Do it Yourself]
+
+```
+A B C D E
+A B C D
+A B C
+A B
+A
+
+A
+B B
+C C C
+D D D D
+E E E E E
+```
+----------
+### Pattern-12:
+
+```
+     A  
+    ABA
+   ABCBA
+  ABCDCBA
+ ABCDEDCBA
+```
+
+**Pseudo Code:**
+```
+n=6;
+for (row=0; row<n; row++)
+   // Space
+   for (space=0; space<n-row-1; space++) print (" ")
+   
+   char ch = 'A';
+   int breakpoint = (2*row+1)/2;
+
+   // Character
+   for (star=1; star<=2*row+1; star++)
+       print(ch)
+       if(star <= breakpoint) ch++;
+       else ch--;
+
+   // Space
+   for (space=0; space<n-row-1; space++) print (" ")
+
+   print (\n)
+```
+
+------------
+### Pattern-13:
+
+```
+**********
+****  ****
+***    ***
+**      **
+*        *
+*        *
+**      **
+***    ***
+****  ****
+**********
+
+Half of the Rows  => n = 5;
+
+0th Row => 5 Stars | 0 Space | 5 Stars
+1st Row => 4 Stars | 2 Spaces| 4 Stars
+2nd Row => 3 Stars | 4 Spaces| 3 Stars
+3rd Row => 2 Stars | 6 Spaces| 2 Stars
+4th Row => 1 Star  | 8 Spaces| 1 Star
+          (n - row)
+
+5th Row => 1 Star | 8 Spaces | 1 Star
+6th Row => 2 Star | 6 Spaces | 2 Star
+7th Row => 3 Star | 4 Spaces | 3 Star
+8th Row => 4 Star | 2 Spaces | 4 Star
+9th Row => 5 Star | 0 Spaces | 5 Star
+```
+
+**Pseudo Code:**
+```
+n;
+int spaces = 0;
+
+for (row=0; row<n; row++)
+
+   // Star
+   for (star=1; star<=n-row; star++) print ("*")
+   
+   // Space
+   for (space=0; space<spaces; space++) print(" ")
+
+   // Star
+   for (star=1; star<=n-row; star++) print ("*")
+   
+   spaces += 2;
+   print (\n)
+
+int spaces2 = 2*n - 2;
+
+for (row=1; row<=n; row++)
+
+   // Star
+   for (star=1; star<=row; star++) print ("*")
+   
+   // Space
+   for (space=0; space<spaces2; space++) print(" ")
+
+   // Star
+   for (star=1; star<=row; star++) print ("*")
+   
+   spaces2 -= 2;
+   print (\n)
+
+```
