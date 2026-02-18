@@ -545,3 +545,27 @@ for (row=1; row<=(2*n-1); row++)
    if (row < n) spaces -= 2;
    else spaces += 2;
 ```
+
+---------------
+### Pattern-15:
+**(Solve Yourself)**
+```
+****
+*  *
+*  *
+****
+```
+
+---------
+### Pattern-16:
+```
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4
+```
+
+**Watch the video for better understanding:** [https://youtu.be/tNm_NNSB3_w?list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&t=4563](https://youtu.be/tNm_NNSB3_w?list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&t=4563)

@@ -286,16 +286,38 @@ void pattern14(int numberOfElement){
     }
 }
 
+void pattern15(int numberOfElement){
+    for (int row=0; row<numberOfElement; row++){
+        for (int col=0; col<numberOfElement; col++){
+            if (row==0 || col == 0 || row==numberOfElement-1 || col==numberOfElement-1) cout << "*";
+            else cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern16(int numberOfElement){
+    for(int row=0; row<2*numberOfElement-1; row++){
+        for(int col=0; col<2*numberOfElement-1; col++){
+            int top=row;
+            int bottom=(2*numberOfElement-2) - row;
+            int right = (2*numberOfElement - 2) - col;
+            int left = col;
+            cout << (numberOfElement - min(min(top, bottom), min(left, right)));
+        }
+        cout << endl;
+    }
+}
 
 int main(){
     int numberOfElements;
 
-    // ---------- Pattern - 14: ----------
-    cout << "Enter the Number of Element for Pattern-14:";
+    // ---------- Pattern - 16: ----------
+    cout << "Enter the Number of Element for Pattern-16:";
     cin >> numberOfElements;
 
-    cout << "Printing Pattern-14:" << endl;
-    pattern14(numberOfElements);
+    cout << "Printing Pattern-16:" << endl;
+    pattern16(numberOfElements);
 
     return 0;
 }
