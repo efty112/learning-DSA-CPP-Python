@@ -53,7 +53,7 @@ This is Where:
 Hashing comes into the Picture. Hashing will do it much faster.
 ```
 
-### Hashing
+### Number Hashing
 ```
 Hashing is like "Pre-storing" or "Fetching".
 
@@ -99,3 +99,66 @@ How long should the Hash Array be?
 If the question setter asks to find out the number count till 10^5, the Hash Array length should be 10^5.
 ```
 
+#### Pseudo Code (Hashing Algorithm)
+
+```
+maxVal;
+givenArray[n];
+
+hashArray[maxVal+1] = {0};
+
+for (i=0; i<maxVal; i++){
+    if(givenArray[i] >= 0 && givenArray[i] < 13){
+        hashArray[givenArray[i]]++;
+    }
+}
+```
+
+***What is the Maximum Number of Element you can fit in the HashArray?***
+
+```
+In C++,
+
+Inside Main Function --> 10^6 elements --> HashArr[10^6]
+Globally --> 10^7 elements --> HashArray[10^7]
+```
+
+-----------
+### Character Hashing
+
+***Algorithm:***
+```
+Remember:
+---------
+1) There are "26" lower-case characters.
+2) There are "26" upper-case characters.
+3) Need ASCII values of the characters.
+
+Algorithm:
+----------
+1) Make a "Hashing Array" of 256 elemets.
+2) Assign each element to be Zero.
+3) Go through each element (character) of the given string.
+4) Convert each character into "ASCII"
+Thus, you will find a value in between "0" and "255".
+5) Now, simply insert the values accordingly.
+```
+**ASCII Table:** [https://www.ascii-code.com/](https://www.ascii-code.com/)
+
+***Pseudo Code:***
+```
+givenStr;
+input(givenStr);
+
+hashArray[256] = {0};
+
+for (i=0; i<givenStr.length; i++){
+    charVal = givenStr[i];  //Convert into ASCII
+    hashArray[charVal]++;
+}
+
+ch;
+input(ch);
+chVal = ch; //Convert into ASCII
+print(hashArray[chVal])
+```
