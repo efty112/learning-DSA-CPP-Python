@@ -162,3 +162,122 @@ input(ch);
 chVal = ch; //Convert into ASCII
 print(hashArray[chVal])
 ```
+
+----------
+### Back to Number Hashing Problem:
+
+```
+Problem: A Hashing Array can't take more that 10^7 elements even if you declare the array Globally.
+
+Solution:
+---------
+Use STL (in C++) --> Map, Unordered Map.
+Use Collection (Java) --> HashMap.
+```
+
+#### Example:
+```
+arr = [1, 2, 3, 1, 2, 3, 12]
+
+To store, we will use --> Map --> Ordered --> Sorted
+We can also use --> unordered_map --> unordered --> Unsorted
+
+   (int)  (int)
+     |      |
+map<key, value>
+     |      |
+ (Number) (Frequency)
+
+Now (How Map Works):
+---------------------
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+==^====================
+
+|      |
+|1 -> 1|
+|------|
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+=====^=================
+
+|2 -> 1|
+|1 -> 1|
+|------|
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+========^==============
+
+|3 -> 1|
+|2 -> 1|
+|1 -> 1|
+|------|
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+===========^===========
+
+|3 -> 1|
+|2 -> 1|
+|1 -> 2|
+|------|
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+==============^========
+
+|3 -> 1|
+|2 -> 2|
+|1 -> 2|
+|------|
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+=================^=====
+
+|3 -> 2|
+|2 -> 2|
+|1 -> 2|
+|------|
+
+=======================
+| 1, 2, 3, 1, 2, 3, 12|
+=====================^=
+
+|12-> 1|
+|3 -> 2|
+|2 -> 2|
+|1 -> 2|
+|------|
+
+Map takes way less elements than a Hashing Array. How?
+-> In Hashing Array, you would have to make an Array of 12 elements to store the frequency of 12 Numbers.
+-> While in Map, you only have to store the frequency of the required and existing numbers.
+```
+
+***Learn More (Map):*** [https://www.geeksforgeeks.org/cpp/map-associative-containers-the-c-standard-template-library-stl/](https://www.geeksforgeeks.org/cpp/map-associative-containers-the-c-standard-template-library-stl/)
+
+***Time Complexity: [MAP]***
+```
+Storing  | --> (Best, Average, Worst all Case) --> (logN) 
+Fetching |
+```
+
+***Time Complexity: [Unordered-MAP]***
+```
+Storing  | --> (Best, Average Case)= (1) | --> (Worst Case)= (N)
+Fetching |
+
+BigO(N) => N -> Number of Elements in the Map
+And, In Unordered Map, worst case rarely happen.
+But if the Worst Case happens anyway, the Time Complexity of the whole Code becomes: O(N^2)
+
+So, Remember:
+-------------
+First --> Use Unordered_Map
+(If it shows "Time Limit Exceeded" Error,)
+Then --> Use Map
+```

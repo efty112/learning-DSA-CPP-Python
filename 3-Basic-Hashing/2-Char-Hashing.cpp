@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     string givenStr;
-    cin >> givenStr;
+    getline(cin, givenStr);
 
     int hashArray[256] = {0};
     for (int i=0; i<givenStr.length(); i++){
