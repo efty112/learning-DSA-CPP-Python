@@ -280,4 +280,102 @@ So, Remember:
 First --> Use Unordered_Map
 (If it shows "Time Limit Exceeded" Error,)
 Then --> Use Map
+
+For Unordered_map:
+-------------------
+Worst Case happens very rarely. And it happens when there is an internal Collision.
+
+** But what do you mean by Collision? ** --> Will Understand Later.
+```
+
+### Internal Working of Map:
+*(Explain Collision)*
+
+```
+Map is implemented in a very complex way. You don't need to know it. But in the interviews sometimes they ask about the "Division Method".
+
+Map might be using any of these Hashing Methods:
+1) Division Method --> Needed --> (Linear Chaining)
+2) Folding Method --> Not needed
+3) Mid Square Method --> Not needed
+```
+
+#### Division Method:
+```
+Let's Imagine:
+--------------
+You have the following Array and You can not have more than "10" elements in the "Hashing Array".
+
+Array:
+------
+===================
+|2, 5, 16, 28, 139|
+===================
+
+Hash Array:
+-----------
+===============================
+|  |  |  |  |  |  |  |  |  |  |
+===============================
+ 0  1  2  3  4   5  6  7  8  9
+
+Here:
+-----
+1) Find the modulus (%) for each of the elements in Array dividing by "10". (2%10 = 2 | 139%10 = 9)
+2) In the HashArray, set the value of the index that matches the modulus value to be 1. (hashArray[modulusValue])
+
+2%10 = 2
+5%10 = 5
+16%10 = 6
+28%10 = 8
+139%10 = 9
+
+===============================
+|  |  |1 |  |  |1 |1 |  |1 |1 |
+===============================
+ 0  1  2  3  4   5  6  7  8  9
+
+If asked, How many times "139" appears, you first need to find the Modulus of 139 and then find the index in the HashArray.
+
+Now (What if multiple elements have same modulus value):
+--------------------------------------------------------
+Array:
+------
+===================================
+|2, 5, 16, 28, 139, 38, 48, 28, 18|
+===================================
+
+0 -> 
+1 -> 
+2 -> 2
+3 -> 
+4 -> 
+5 -> 5
+6 -> 16
+7 -> 
+8 -> 18 -> 28 -> 28 -> 38 -> 48  [Liner Chaining] [Sorted]
+9 -> 139
+
+If asked to find out how many times "28" appears,
+first find the modulus of "28" which is "8", then find from the "8"th index using a searching Algorithm.
+
+Now Imagine an Array where all the elements have the same Modulus value:
+---------------------------------------
+=====================================
+|8, 18, 28, 38, 48, 58, 68, 78, 1008|
+=====================================
+
+0 -> 
+1 -> 
+2 -> 
+3 -> 
+4 -> 
+5 -> 
+6 -> 
+7 -> 
+8 -> 18 -> 28 -> 38 -> 48 -------> 1008
+9 -> 
+
+If the Array has many more elements like 10^10 or 10^18 elements and all have the same Modulus value --> Collision happens.
+And in that Case, The Time Complexity of the Unordered_Map becomes BigO(N).
 ```

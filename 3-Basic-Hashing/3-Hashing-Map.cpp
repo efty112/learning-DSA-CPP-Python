@@ -14,6 +14,7 @@ int main(){
     
     // Pre-Compute
     map<int, int> hashArray;
+    // unordered_map<int, int> hashArray;
     for(int i=0; i<n; i++){
         hashArray[arr[i]]++;
     }
