@@ -303,5 +303,119 @@ for (i=n-1; i>=1; i--){
         break;
     }
 }
+
+-------------------------
+Time Complexity:
+--> Best Case for this Code: BigO(n)
+--> Worst Case and Average Case: BigO(n^2)
 ```
 
+----------------------
+### Insertion Sort:
+*(Method: Takes an Element & Places it in it's correct Position)*
+
+#### Algorithm:
+```
+1) Starting from the beginning of the Array to the last.
+2) We iterate through each element one by one and we put the element to its correct position.
+
+--------------------
+Example:
+--------
+
+Array:
+============================
+|13 | 46 | 24 | 52 | 20 | 9|
+============================
+
+-------
+Step-1: [Consider the 1st element]
+-------
+============================
+|13 |    |    |    |    |  |
+============================
+
+-------
+Step-2: [Consider the the 1st 2 elements]
+-------
+(46 is greater than 13. So, it's in correct order.)
+============================
+|13 | 46 |    |    |    |  |
+============================
+
+-------
+Step-3: [Consider the the 1st 3 elements]
+-------
+(46 is greater than 24. So, right shift 46 by 1 place. And left shift 24 by one.)
+============================
+|13 | 46 | 24 |    |    |  |
+============================
+
+(Now, 24 is greater than 13. So, it's in correct order)
+============================
+|13 | 24 | 46 |    |    |  |
+============================
+
+-------
+Step-4: [Consider the the 1st 4 elements]
+-------
+(52 is greater than 46 -> Correct Order.)
+============================
+|13 | 24 | 46 | 52 |    |  |
+============================
+
+-------
+Step-5: [Consider the the 1st 5 elements]
+-------
+(52 is greater than 20 --> Right Shift 52 by 1 place.)
+============================
+|13 | 24 | 46 | 52 | 20 |  |
+============================
+
+(46 is greater than 20 --> Right Shift 46 by 1 place.)
+============================
+|13 | 24 | 46 | 20 | 52 |  |
+============================
+
+(24 is greater than 20 --> Right Shift 24 by 1 place.)
+============================
+|13 | 24 | 20 | 46 | 52 |  |
+============================
+
+============================
+|13 | 20 | 24 | 46 | 52 |  |
+============================
+
+-------
+Step-6: [Consider the the 1st 6 (all) elements]
+-------
+(52 is greater than 9 --> Right Shift 52 by 1 place.)
+=============================
+|13 | 20 | 24 | 46 | 52 | 9 |
+=============================
+
+(46 is greater than 9 --> Right Shift 46 by 1 place.)
+=============================
+|13 | 20 | 24 | 46 | 9 | 52 |
+=============================
+
+(24 is greater than 9 --> Right Shift 24 by 1 place.)
+=============================
+|13 | 20 | 24 | 9 | 46 | 52 |
+=============================
+
+(20 is greater than 9 --> Right Shift 20 by 1 place.)
+=============================
+|13 | 20 | 9 | 24 | 46 | 52 |
+=============================
+
+(13 is greater than 9 --> Right Shift 13 by 1 place.)
+=============================
+|13 | 9 | 20 | 24 | 46 | 52 |
+=============================
+
+=============================
+|9 | 13 | 20 | 24 | 46 | 52 |
+=============================
+
+```
