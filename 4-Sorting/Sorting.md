@@ -93,7 +93,7 @@ So, Total= n + n-1 + n-2 + n-3 + n-4 + ........ + 3 + 2 + 1
 Total = n*(n+1) / 2 = (n^2 + n)/2
 (Ignore "n" and "/2")
 
-Time Complexity of Selection Sort: n^2
+Time Complexity of Selection Sort: BigO(n^2)
 ```
 
 ------------------
@@ -219,5 +219,89 @@ Step-6:
 ============================
 
 Now, Only One element is left. So, Now the Array is Sorted.
+
+Observation:
+-------------
+[n = Array element count]
+1st Time --> 0 to n-1
+2nd Time --> 0 to n-2
+3rd Time --> 0 to n-3
+.
+.
+last Time --> 0 to 1
+
+Also, In each step, 1 element gets sorted. And we continue the process untill we reach the 2nd element (Index=1).
+So, the Total Steps = "n-1" times
+```
+
+#### Pseudo Code:
+```
+arr[n];
+n;    //Array Length 
+
+for (i=n-1; i>=1; i--){
+    for (j=0; j<=i-1; j++){
+        if(arr[j] > arr[j+1]){
+            swap(arr[j], arr[j+1]);
+        }
+    }
+}
+```
+
+#### Time Complexity:
+```
+i = n-1 --> j = 0 to n-2 => "n-1" times
+i = n-2 --> j = 0 to n-3 => "n-2" times
+i = n-3 --> j = 0 to n-4 => "n-3" times
+i = n-4 --> j = 0 to n-5 => "n-4" times
+.
+.
+.
+i = 2 --> j = 0 to 1 => "2 times"
+i = 1 --> j = 0 to 0 => "1 times"
+
+So, Total = n-1 + n-2 + n-3 + n-4 + ...... + 3 + 2 + 1
+(Summation of first "n" numbers)
+
+Total = n*(n+1) / 2 = (n^2 + n)/2
+(Ignore "n" and "/2")
+
+Time Complexity of Selection Sort: BigO(n^2)
+[Worst Case Complexity + Average Case Complexity]
+```
+
+#### Optimization (Bubble Sort):
+```
+Now, lets Imagine an already a Sorted Array:
+=========================
+| 9 | 13 | 20 | 24 | 46 |
+=========================
+
+--> This is the "Best Case"
+--> If you use the Previous Code, the Time Complexity here would be: BigO(n^2)
+--> Which is same as the Worst or Average Case.
+--> If we can tweak the code a little bit, we can find a better Complexity for the "Best Case".
+
+--> If no swap happens in the first iteration, it means the Array is Sorted.
+
+Better Code:
+-------------
+arr[n];
+n;    //Array Length 
+
+for (i=n-1; i>=1; i--){
+    didSwap = false;
+
+    for (j=0; j<=i-1; j++){
+        if(arr[j] > arr[j+1]){
+            swap(arr[j], arr[j+1]);
+            didSwap = true;
+        }
+    }
+
+    if(!didSwap){
+        break;
+    }
+}
 ```
 
