@@ -317,7 +317,7 @@ Time Complexity:
 #### Algorithm:
 ```
 1) Starting from the beginning of the Array to the last.
-2) We iterate through each element one by one and we put the element to its correct position.
+2) We iterate through each element one by one and we put each of the elements to its correct position.
 
 --------------------
 Example:
@@ -418,4 +418,60 @@ Step-6: [Consider the the 1st 6 (all) elements]
 |9 | 13 | 20 | 24 | 46 | 52 |
 =============================
 
+i=0 --> X
+i=1 --> if(arr[0] > arr[1]) swap(arr[0], arr[1])
+
+i=2 --> if(arr[1] > arr[2]) swap(arr[1], arr[2])
+    --> if(arr[0] > arr[1]) swap(arr[0], arr[1])
+
+i=3 --> if(arr[2] > arr[3]) swap(arr[2], arr[3])
+    --> if(arr[1] > arr[2]) swap(arr[1], arr[2])
+    --> if(arr[0] > arr[1]) swap(arr[0], arr[1])
+
+Also, In the first Place, if no Swap happens (Like- Step-4), we don't need to proceed furthur with swapping as it is already in the sorted order.
+```
+
+#### Pseudo Code:
+```
+n;  // Array Length
+arr[n];
+
+for(i=1; i<n; i++){
+    for(j=i; j>0; j--){
+        if(arr[j-1] > arr[j]){
+            swap(arr[j-1], arr[j]);
+        }
+    }
+}
+
+
+More Optimized Code:
+====================
+(If in the first place no swap happens, we don't need to proceed furthur.)
+
+n;  // Array Length
+arr[n];
+
+for(i=1; i<n; i++){
+    for(j=i; j>0 && arr[j-1] > arr[j]; j--){
+        swap(arr[j-1], arr[j]);
+    }
+}
+```
+
+#### Time Complexity:
+```
+i=0 --> 0 times
+i=1 --> 1 times
+i=2 --> 2 times
+i=3 --> 3 times
+.
+i=n --> n times
+
+Total= 0+1+2+3+4+....+n = (n*(n+1))/2 ~ n^2
+
+Worst Case: BigO(n^2)
+Average Case: n^2
+
+Best Case --> All the elements are in Sorted Order --> (n)
 ```

@@ -33,6 +33,14 @@ void bubble_sort(int arr[], int arrLen){
     }
 }
 
+void insertion_sort(int arr[], int arrLen){
+    for(int i=1; i<arrLen; i++){
+        for(int j=i; j>0 && arr[j-1] > arr[j]; j--){
+            swapData(arr[j-1], arr[j]);
+        }
+    }
+}
+
 int main(){
     int n;
     cout << "Size of the Array: ";
@@ -48,8 +56,14 @@ int main(){
     //     cout << arr[j] << " ";
     // }
 
-    bubble_sort(arr, n);
-    cout << "Bubble Sorted Array: ";
+    // bubble_sort(arr, n);
+    // cout << "Bubble Sorted Array: ";
+    // for (int j = 0; j < n; j++){
+    //     cout << arr[j] << " ";
+    // }
+
+    insertion_sort(arr, n);
+    cout << "Insertion Sorted Array: ";
     for (int j = 0; j < n; j++){
         cout << arr[j] << " ";
     }
