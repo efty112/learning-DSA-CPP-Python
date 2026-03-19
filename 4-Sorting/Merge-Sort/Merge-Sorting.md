@@ -1,4 +1,3 @@
-
 # Sorting - 2:
 
 ### Merge Sort:
@@ -51,7 +50,7 @@ Example: Follow "mergeSort-Merge.png"
 --------------------------------------
 ```
 
-#### Pseudo Code:
+#### Pseudo Code: [Division Algorithm]
 ***Play around with Indexes***
 ```
 If you Follow "mergeSort-Divide-Algorthm.png", you can see a pattern.
@@ -60,5 +59,82 @@ If you Follow "mergeSort-Divide-Algorthm.png", you can see a pattern.
     low = low | high = mid
 3) Another Portion follows:
     low = mid+1 | high = high
+4) Keep dividing until "low >= high"
+
+=======================================
+Pseudo Code:
+============
+arr[n];
+
+low = 0;
+high = n-1;
+mid = (low+high)/2;
+
+mergeSort(arr, low, high){
+    if(low>=high) return;
+
+    mid = (int)((low+high)/2);
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid+1, high);
+    merge(arr, low, mid, high);
+}
+
+=======================================
+Dry Run through the "Recursion Code"
+    --> Follow: mergeSort-Dry-Run.png
+```
+
+#### Pseudo Code: [Merging Algorithm]
+
+```
+Follow --> "5-mergeSort-Sorting.png"
+====================================
+1) Take Input => arr, low, mid, high.
+2) Variables => temp[], left, right.
+3) left=low, right=mid+1
+4) left>=low && left<=mid
+5) right>=mid+1 && right<=high
+6) if(arr[left] < arr[right]) -> temp.add(arr[left]) -> left++
+7) if(arr[right] < arr[left]) -> temp.add(arr[right]) -> right++
+8) if(left>mid) -> temp.add(arr[right]) -> right++
+9) if(right>high) -> temp.add(arr[left]) -> left++
+10) Tranfer the Temp Array (temp[]) elements to the original Array (arr[])
+
+==================
+Pseudo Code:
+==================
+merge(arr, low, mid, high){
+    temp[high];
+    left=low;
+    right=mid+1;
+    k=0;
+
+    while(left<=mid || right<=high){
+        if(left>mid){
+            temp[k] = arr[right];
+            right++;
+            k++;
+        }
+        else if(right>high){
+            temp[k] = arr[left];
+            left++
+            k++
+        }
+        else if(arr[left] < arr[right]){
+            temp[k] = arr[left];
+            left++;
+            k++;
+        }
+        else{
+            temp[k] = arr[right];
+            right++;
+            k++;
+        }
+    }
+
+    for (int i = low; i <= high; i++) {
+        arr[i] = temp[i-low];
+    }
+}
 
 ```
