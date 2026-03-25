@@ -138,3 +138,60 @@ merge(arr, low, mid, high){
 }
 
 ```
+
+#### Complexity Analysis:
+
+```
+Time Complexity:
+================
+
+Division Algorithm:
+-------------------
+[n] --> [n/2] --> [n/4]
+    |         --> [n/4]
+    |          
+    --> [n/2] --> [n/4]
+              --> [n/4]
+
+Each Time "n" is getting divided by "2".
+
+Example:
+[16] --> [8] --> [4] --> [2] --> [1]
+                             --> [1]
+                     --> [2] --> [1]
+                             --> [1]
+
+             --> [4] --> [2] --> [1]
+                             --> [1]
+                     --> [2] --> [1]
+                             --> [1]
+
+     --> [8] --> ...................
+
+From "16" to "1", There are "4" steps in Total.
+16 = 2^4 = 2^steps
+n = 2^steps
+
+So, Steps = log2^n
+
+Time Complexity for Division Algorithm: O(log2^n)
+
+
+Merging Algorithm:
+------------------
+Merging takes a minimum of "N" times in each of the Steps.
+
+
+Finally:
+--------
+The Time Complexity: => O(n*log2^n)
+
+
+Space Complexity:
+=================
+Each Time while Dividing, we used the Indexes. So, for Division, no extra space were used.
+But While Merging, we used a "Temp Array". The "Temp Array" was used to store the Array elements.
+And the "Temp Array" is the size of "N".
+
+So, Space Complexity => O(N).
+```
