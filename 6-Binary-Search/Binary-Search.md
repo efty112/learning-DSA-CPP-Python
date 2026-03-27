@@ -117,3 +117,50 @@ BINARYSEARCHITER(arr, arrLen, target)
 
 END BINARYSEARCHITER
 ```
+
+#### Pseudo-Code (Binary Search by Recursion)
+```
+BINARYSEARCHRECURSION(arr, low, high, target)
+
+    IF low > high
+        RETURN -1
+
+    mid ← (low + high) / 2
+
+    IF arr[mid] = target
+        RETURN mid
+
+    ELSE IF target < arr[mid]
+        RETURN BINARYSEARCHRECURSION(arr, low, mid-1, target)
+
+    ELSE
+        RETURN BINARYSEARCHRECURSION(arr, mid+1, high, target)
+```
+
+#### Time Complexity:
+```
+Let's Imagine: We have array of "32" elements.
+And Each Time, the existing Array gets divided into "2" portions.
+32 --> 16 --> 8 --> 4 --> 2 --> 1 => 5 Steps => Log2^32
+
+Time Complexity => O(log2^N)
+```
+
+#### Overflow Issue:
+```
+Imagine, you have an Array of "10^5 / 10^6 / 10^7" elements.
+
+Now, low=0 | high= 10^7 = IntMax (Let's call it IntMax)
+You keep dividing the Array into 2 parts, and by keep doing that there might be a time when,
+"Low" might be close to "10^7"
+"High" might be "10^7"
+
+Then, int mid = (IntMax + IntMax) / 2
+But the "mid" can't hold ("IntMax+IntMax") a number this big.
+
+How to solve it:
+----------------
+1) using "long long" with "low" and "high".
+or,
+2) using "mid = low + {(high-low) / 2}"
+```
