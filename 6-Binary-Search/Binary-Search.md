@@ -296,3 +296,63 @@ Use: C++ STL "lower_bound"
 **Link (C++ STL lower_bound):** [https://www.geeksforgeeks.org/cpp/lower_bound-in-cpp/](https://www.geeksforgeeks.org/cpp/lower_bound-in-cpp/)
 
 
+## Upper Bound:
+
+#### Algorithm:
+```
+Let's say, You have a Target "x".
+
+The "Lower Bound" of the Target ("x") is: The "smallest" index such that "array[indx] > x".
+{"greater than" not "greater than or equal"}
+
+Example:
+---------
+        0  1  2  3  4  5  6   7   8   9
+Array: [2, 3, 6, 7, 8, 8, 11, 11, 11, 12]
+
+X=6  --> UP=3
+X=11 --> UP=9
+X=12 --> UP=10
+X=13 --> UP=10
+X=0  --> UP=0
+The Algorithm is same as "Lower Bound"s Algorithm. Just the only difference is the logic of "array[indx] > x".
+```
+
+#### Pseudo Code:
+```
+BINARYSEARCHITER(arr, arrLen, target)
+
+    low ← 0
+    high ← arrLen - 1
+    lb = arrLen
+
+    WHILE low ≤ high DO
+        mid ← (low + high) / 2
+
+        IF arr[mid] > target THEN
+            lb ← mid
+            high ← mid - 1
+
+        ELSE
+            low ← mid + 1
+        END IF
+    END WHILE
+
+    RETURN lb
+
+END BINARYSEARCHITER
+```
+
+
+#### Complexity and C++ Way of doing it:
+```
+Time Complexity:
+----------------
+=> O(log2^n)
+=> as it is similar to Binary Search Algorithm
+
+C++ Way:
+--------
+Use: C++ STL "upper_bound"
+```
+**Link (C++ STL upper_bound):** [https://www.geeksforgeeks.org/cpp/upper_bound-in-cpp/](https://www.geeksforgeeks.org/cpp/upper_bound-in-cpp/)
