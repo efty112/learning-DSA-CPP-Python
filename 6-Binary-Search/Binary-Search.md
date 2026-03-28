@@ -164,3 +164,135 @@ How to solve it:
 or,
 2) using "mid = low + {(high-low) / 2}"
 ```
+
+
+## Lower Bound:
+
+#### Algorithm:
+
+```
+Let's say, You have a Target "x".
+
+The "Lower Bound" of the Target ("x") is: The "smallest" index such that "array[indx] >= x".
+
+Example-1:
+----------
+        0  1  2  3   4
+Array: [3, 5, 8, 15, 19]
+Targets:
+"X=8"  --> LB=2
+"X=9"  --> LB=3
+"X=16" --> LB=4
+"X=20" --> LB=5
+
+
+Example-2:
+----------
+        0  1  2  3   4   5   6
+Array: [3, 5, 8, 15, 19, 19, 19]
+Targets:
+"X=19" --> LB=4
+
+
+Example-3:
+----------
+        0  1  2  3  4  5  6  7  8  9
+Array: [1, 2, 3, 3, 7, 8, 9, 9, 9, 11]
+
+Targets => "X=1"
+
+Now, Let's Imagine, You have a Target for which there is no Lower Bound. In that case, you set "n" as the "Lower Bound".
+Basically, "n" is the universal Lower Bound.
+
+So, LB = 10
+
+ 0  1  2  3  4  5  6  7  8  9
+[1, 2, 3, 3, 7, 8, 9, 9, 9, 11]
+
+LB=10 | low=0 | high=9
+mid=(low+high)/2 = 4
+arr[mid] = 7 >= 1 ? --> Yes --> (LB=mid=4 | low=0 | high=mid-1=3)
+
+LB=4 | low=0 | high=3
+mid=(low+high)/2 = 1
+arr[mid] = 2 >= 1 ? --> Yes --> (LB=mid=1 | low=0 | high=mid-1=0)
+
+LB=1 | low=0 | high=0
+mid=(low+high)/2 = 0
+arr[mid] = 1 >= 1 ? --> Yes --> (LB=mid=0 | low=0 | high=mid-1=-1)
+
+LB=0 | low=0 | high=-1
+(low<=high) --> No
+
+Finally, => "Lower Bound=0"
+
+
+Example-4:
+----------
+        0  1  2  3  4  5  6  7   8   9
+Array: [1, 2, 3, 3, 5, 8, 8, 10, 10, 11]
+
+Targets => "X=9"
+
+LB=10 | low=0 | high=9
+mid=(low+high)/2 = 4
+arr[mid] = 5 >= 9 ? --> No --> (low=mid+1=5 | high=9)
+
+LB=10 | low=5 | high=9
+mid=(low+high)/2 = 7
+arr[mid] = 10 >= 9 ? --> Yes --> (LB=7 | low=5 | high=mid-1=6)
+
+LB=7 | low=5 | high=6
+mid=(low+high)/2 = 5
+arr[mid] = 8 >= 9 ? --> No --> (low=mid+1=6 | high=6)
+
+LB=7 | low=6 | high=6
+mid=(low+high)/2 = 6
+arr[mid] = 8 >= 9 ? --> No --> (low=mid+1=7 | high=6)
+
+LB=7 | low=7 | high=6
+(low<=high) --> No 
+
+Finally, => "Lower Bound=7"
+```
+
+#### Pseudo Code:
+```
+BINARYSEARCHITER(arr, arrLen, target)
+
+    low ← 0
+    high ← arrLen - 1
+    lb = arrLen
+
+    WHILE low ≤ high DO
+        mid ← (low + high) / 2
+
+        IF arr[mid] >= target THEN
+            lb ← mid
+            high ← mid - 1
+
+        ELSE
+            low ← mid + 1
+        END IF
+    END WHILE
+
+    RETURN lb
+
+END BINARYSEARCHITER
+```
+
+
+#### Complexity and C++ Way of doing it:
+```
+Time Complexity:
+----------------
+=> O(log2^n)
+=> as it is similar to Binary Search Algorithm
+
+C++ Way:
+--------
+Use: C++ STL "lower_bound"
+```
+**Link (C++ STL lower_bound):** [https://www.geeksforgeeks.org/cpp/lower_bound-in-cpp/](https://www.geeksforgeeks.org/cpp/lower_bound-in-cpp/)
+
+
