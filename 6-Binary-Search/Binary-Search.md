@@ -356,3 +356,51 @@ C++ Way:
 Use: C++ STL "upper_bound"
 ```
 **Link (C++ STL upper_bound):** [https://www.geeksforgeeks.org/cpp/upper_bound-in-cpp/](https://www.geeksforgeeks.org/cpp/upper_bound-in-cpp/)
+
+
+## Search Insert Position
+
+#### Statement:
+```
+You have a "Sorted Array" and a "Target".
+
+If the "Target" exists inside of the Array, return the "Target Position" (index).
+
+If the "Target" doesn't exist inside of the Array, determine where (index) the "Target" inside of the Array should be presented maintaining the correct order of the Array.
+Determine the correct index of the Array.
+```
+
+#### Example:
+```
+        0  1  2  3  4  5
+Array: [1, 2, 4, 7, 8, 10]
+
+Target: X=2
+As "2" exists, the index of "Target" is => 1
+
+Target: X=6
+As "6" doesn't exist, the index of "Target" is => 3
+```
+
+#### Solution:
+```
+Just Find the Lower Bound for the Target from the Array.
+```
+
+## Floor and Ceil in Sorted Array
+
+- **Floor:** Largest number (Value) in the Array such that "arr[ind] <= Target"
+- **Ceil:** Smallest number (Value) in the Array such that "arr[ind] >= Target"
+
+- **Ceil** is "Lower Bound" --> But we return the **"Value"** not the Index. --> If the value is not Found, we return "-1".
+
+```
+Example:
+--------
+        0   1   2   3   4
+Array: [10, 20, 30, 40, 50]
+
+Target = 20 --> Floor: 20 | Ceil: 20
+Target = 25 --> Floor: 20 | Ceil: 30
+Target = 55 --> Floor: 50 | Ceil: -1
+```
